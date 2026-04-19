@@ -7,37 +7,58 @@
 
 <style>
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
+    font-family: "Segoe UI", sans-serif;
     background: #0f172a;
-    color: white;
+    color: #e2e8f0;
+    line-height: 1.6;
 }
 
 header {
     text-align: center;
-    padding: 60px 20px;
+    padding: 80px 20px;
 }
 
 h1 {
     font-size: 3em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    border-bottom: 2px solid #38bdf8;
+    padding-bottom: 5px;
+    margin-top: 40px;
 }
 
 section {
-    padding: 40px;
-    max-width: 900px;
+    max-width: 1000px;
     margin: auto;
+    padding: 20px;
 }
 
 .card {
     background: #1e293b;
     padding: 20px;
-    margin: 20px 0;
+    margin-top: 20px;
     border-radius: 10px;
+}
+
+ul {
+    padding-left: 20px;
 }
 
 a {
     color: #38bdf8;
     text-decoration: none;
+}
+
+.tag {
+    display: inline-block;
+    background: #334155;
+    padding: 5px 10px;
+    margin: 3px;
+    border-radius: 5px;
+    font-size: 0.9em;
 }
 </style>
 </head>
@@ -47,45 +68,199 @@ a {
 <header>
     <h1>Celina Bedjou</h1>
     <p>Data Scientist | Machine Learning Engineer</p>
+    <p>NLP • Data Engineering • MLOps • Multi-Agent Systems</p>
 </header>
 
 <section>
-<h2>À propos</h2>
+<h2>🧠 À propos</h2>
 <p>
-Ingénieure spécialisée en NLP, Data Engineering et IA.
-Passionnée par les systèmes intelligents et les architectures multi-agents.
+Ingénieure en Data Science spécialisée en Machine Learning, NLP et Data Engineering,
+actuellement en Master à Paris-Saclay.  
+J’ai développé une expertise solide à travers des projets en recherche scientifique et en industrie,
+avec une forte orientation vers la construction de systèmes intelligents robustes, scalables et explicables.
+</p>
+
+<p>
+Je m’intéresse particulièrement aux architectures multi-agents, aux systèmes basés sur LLM,
+et à l’industrialisation des pipelines de machine learning.
 </p>
 </section>
 
 <section>
-<h2>Projets</h2>
+<h2>🚀 Projets</h2>
 
 <div class="card">
-<h3>🚆 Système de Vigilance SNCF</h3>
-<p>Détection d’anomalies + multi-agents + LLM</p>
+<h3>🥇 Système de Vigilance Numérique – Hackathon SNCF (1ère place)</h3>
+
+<p><strong>Objectif :</strong> Détecter automatiquement les perturbations ferroviaires avant leur signalement officiel.</p>
+
+<ul>
+<li>Conception d’une architecture <strong>multi-agents</strong> (7 agents spécialisés : collecte, analyse, décision, génération)</li>
+<li>Détection d’anomalies sur séries temporelles :
+    <ul>
+        <li>Z-score contextualisé</li>
+        <li>Analyse de dérive (slope)</li>
+        <li>Persistance temporelle</li>
+    </ul>
+</li>
+<li>Création d’un <strong>scoring composite</strong> (gravité + impact utilisateur + confiance statistique)</li>
+<li>Utilisation d’un <strong>LLM</strong> pour générer des rapports et estimer les temps de reprise</li>
+<li>Pipeline de données temps réel (APIs GTFS-RT, SIRI Lite)</li>
+<li>Dashboard interactif avec Streamlit</li>
+</ul>
+
+<p><strong>Impact :</strong> Détection anticipée des incidents plusieurs minutes avant signalement humain.</p>
+
+<p>
+<span class="tag">Python</span>
+<span class="tag">Snowflake</span>
+<span class="tag">LLM</span>
+<span class="tag">Streamlit</span>
+<span class="tag">Time Series</span>
+<span class="tag">Multi-Agent</span>
+</p>
 </div>
 
 <div class="card">
-<h3>🤖 AI Customer Support</h3>
-<p>Pipeline RAG + NLP + automatisation</p>
+<h3>🤖 AI Customer Support System (RAG + Multi-Agent)</h3>
+
+<p><strong>Objectif :</strong> Automatiser la gestion intelligente des tickets clients.</p>
+
+<ul>
+<li>Implémentation d’un pipeline <strong>RAG</strong> (retrieval + génération)</li>
+<li>Utilisation d’<strong>embeddings vectoriels</strong> pour recherche sémantique</li>
+<li>Analyse de sentiment et priorisation automatique</li>
+<li>Génération de réponses contextualisées via LLM</li>
+<li>Interface de monitoring avec Streamlit</li>
+</ul>
+
+<p><strong>Impact :</strong> Amélioration de la productivité du support et qualité des réponses.</p>
+
+<p>
+<span class="tag">NLP</span>
+<span class="tag">RAG</span>
+<span class="tag">LLM</span>
+<span class="tag">Python</span>
+<span class="tag">Streamlit</span>
+</p>
 </div>
 
 <div class="card">
-<h3>🧬 PRISME NLP</h3>
-<p>Analyse de publications scientifiques</p>
+<h3>🧬 PRISME – Analyse NLP de publications scientifiques (INSERM)</h3>
+
+<ul>
+<li>Développement d’un système prédictif pour estimer l’impact des preprints</li>
+<li>Utilisation de modèles transformers :
+    <ul>
+        <li>SciBERT</li>
+        <li>SPECTER2</li>
+    </ul>
+</li>
+<li>Création d’embeddings sémantiques</li>
+<li>Pipeline ML complet (préprocessing → entraînement → évaluation)</li>
+<li>Normalisation bibliométrique</li>
+</ul>
+
+<p><strong>Impact :</strong> Aide à la décision scientifique et valorisation des publications.</p>
+
+<p>
+<span class="tag">PyTorch</span>
+<span class="tag">Transformers</span>
+<span class="tag">NLP</span>
+<span class="tag">Machine Learning</span>
+</p>
+</div>
+
+<div class="card">
+<h3>🧠 NutriRAG – Analyse de données nutritionnelles</h3>
+
+<ul>
+<li>Feature engineering sur données nutritionnelles</li>
+<li>Réduction de dimension :
+    <ul>
+        <li>PCA</li>
+        <li>UMAP</li>
+    </ul>
+</li>
+<li>Clustering :
+    <ul>
+        <li>K-Means</li>
+        <li>DBSCAN</li>
+        <li>Clustering hiérarchique</li>
+    </ul>
+</li>
+<li>Production de KPIs pour exploitation par d'autres modules</li>
+</ul>
+
+<p>
+<span class="tag">Scikit-learn</span>
+<span class="tag">Data Science</span>
+<span class="tag">Clustering</span>
+</p>
+</div>
+
+<div class="card">
+<h3>🧪 Computer Vision – Détection de tumeurs (YOLO)</h3>
+
+<ul>
+<li>Préparation et annotation du dataset BraTS 2020</li>
+<li>Entraînement d’un modèle YOLO pour détection de tumeurs sur IRM</li>
+<li>Pipeline de traitement d’image en Python</li>
+</ul>
+
+<p>
+<span class="tag">Computer Vision</span>
+<span class="tag">YOLO</span>
+<span class="tag">Deep Learning</span>
+</p>
 </div>
 
 </section>
 
 <section>
-<h2>Compétences</h2>
-<p>Python, ML, NLP, Data Engineering, MLOps</p>
+<h2>🛠️ Compétences</h2>
+
+<h3>Machine Learning & IA</h3>
+<ul>
+<li>Modèles supervisés et non supervisés</li>
+<li>Feature engineering & évaluation</li>
+<li>Optimisation de modèles</li>
+</ul>
+
+<h3>Deep Learning & NLP</h3>
+<ul>
+<li>Transformers (BERT, SciBERT, SPECTER)</li>
+<li>Embeddings sémantiques</li>
+<li>Classification de texte, extraction d'information</li>
+</ul>
+
+<h3>Data Engineering</h3>
+<ul>
+<li>ETL / pipelines de données</li>
+<li>Bases SQL & NoSQL</li>
+<li>Data Warehouse / Data Lake</li>
+</ul>
+
+<h3>MLOps & Cloud</h3>
+<ul>
+<li>Docker, Airflow, MLflow</li>
+<li>CI/CD</li>
+<li>AWS, Snowflake, OVHCloud</li>
+</ul>
+
+<h3>Langages</h3>
+<ul>
+<li>Python (expert)</li>
+<li>SQL</li>
+<li>Java, JavaScript, C</li>
+</ul>
+
 </section>
 
 <section>
-<h2>Contact</h2>
+<h2>📫 Contact</h2>
 <p>Email : celinabedjou868@gmail.com</p>
-<p><a href="https://github.com/bedjou211/">GitHub</a></p>
+<p><a href="https://github.com/bedjou211">GitHub</a></p>
 <p><a href="https://linkedin.com">LinkedIn</a></p>
 </section>
 
