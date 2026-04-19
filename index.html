@@ -1,297 +1,185 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Celina Bedjou | Data Scientist</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background: radial-gradient(circle at top, #0f172a, #020617);
-    color: #e2e8f0;
-    scroll-behavior: smooth;
-}
-
-/* NAV */
-nav {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background: rgba(15, 23, 42, 0.7);
-    backdrop-filter: blur(12px);
-    padding: 12px;
-    text-align: center;
-    z-index: 1000;
-}
-
-nav a {
-    margin: 0 12px;
-    color: #94a3b8;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-nav a:hover {
-    color: #38bdf8;
-}
-
-/* HERO */
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 3.8em;
-    animation: fadeUp 1s ease;
-}
-
-.hero p {
-    color: #94a3b8;
-    margin-top: 10px;
-    animation: fadeUp 1.5s ease;
-}
-
-/* SECTIONS */
-section {
-    max-width: 1100px;
-    margin: auto;
-    padding: 80px 20px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-}
-
-section.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-h2 {
-    font-size: 2em;
-    margin-bottom: 25px;
-    border-left: 4px solid #38bdf8;
-    padding-left: 12px;
-}
-
-/* CARDS */
-.card {
-    background: rgba(30, 41, 59, 0.6);
-    padding: 25px;
-    border-radius: 15px;
-    margin-top: 20px;
-    border: 1px solid rgba(56,189,248,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 40px rgba(56,189,248,0.15);
-}
-
-/* TAGS */
-.tag {
-    display: inline-block;
-    background: #1e293b;
-    padding: 5px 10px;
-    margin: 5px;
-    border-radius: 8px;
-    font-size: 0.8em;
-}
-
-/* BUTTONS */
-.btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 12px;
-    background: #38bdf8;
-    color: #0f172a;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.btn:hover {
-    background: #0ea5e9;
-}
-
-/* GRID */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-/* STATS */
-.stats {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-    text-align: center;
-}
-
-.stat h3 {
-    font-size: 2em;
-    color: #38bdf8;
-}
-
-/* ANIMATIONS */
-@keyframes fadeUp {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-    <a href="#about">À propos</a>
-    <a href="#projects">Projets</a>
-    <a href="#skills">Compétences</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<div class="hero">
-    <h1>Celina Bedjou</h1>
-    <p>Data Scientist • Machine Learning Engineer</p>
-    <p>NLP • MLOps • Multi-Agent Systems</p>
-
-    <div class="stats">
-        <div class="stat">
-            <h3>5+</h3>
-            <p>Projets IA</p>
-        </div>
-        <div class="stat">
-            <h3>3</h3>
-            <p>Systèmes LLM</p>
-        </div>
-        <div class="stat">
-            <h3>1er</h3>
-            <p>Hackathon SNCF</p>
-        </div>
-    </div>
-</div>
-
-<section id="about">
-<h2>🧠 À propos</h2>
-<p>
-Ingénieure Data Science spécialisée en Machine Learning, NLP et Data Engineering.
-Je conçois des systèmes intelligents complets allant de la donnée brute jusqu’au déploiement en production.
-</p>
-</section>
-
 <section id="projects">
 <h2>🚀 Projets</h2>
 
 <div class="grid">
 
 <div class="card">
-<h3>🚆 Vigilance Numérique (SNCF 🥇)</h3>
-<p>Système de détection d’incidents ferroviaires en temps réel</p>
+<h3>🚆 Système de Vigilance Numérique (SNCF Hackathon 🥇)</h3>
 
+<p><strong>🎯 Problème métier :</strong><br>
+Les incidents ferroviaires sont détectés tardivement à partir de signalements humains ou systèmes passifs, entraînant des retards et une mauvaise expérience utilisateur.</p>
+
+<p><strong>🧠 Objectif :</strong><br>
+Construire un système capable de détecter automatiquement les anomalies en temps réel et d’anticiper les perturbations avant leur confirmation officielle.</p>
+
+<p><strong>⚙️ Architecture technique :</strong></p>
 <ul>
-<li>Architecture multi-agents (7 agents)</li>
-<li>Détection d’anomalies sur séries temporelles</li>
-<li>Scoring intelligent impact + gravité</li>
-<li>LLM pour génération de rapports</li>
+<li>Conception d’une architecture <strong>multi-agents (7 agents IA)</strong> :
+    <ul>
+        <li>Ingestion des flux temps réel (GTFS-RT, SIRI Lite APIs)</li>
+        <li>Nettoyage et normalisation des données</li>
+        <li>Détection d’anomalies</li>
+        <li>Scoring et priorisation</li>
+        <li>Génération de rapports explicatifs via LLM</li>
+    </ul>
+</li>
+
+<li>Modélisation des séries temporelles :
+    <ul>
+        <li>Z-score dynamique basé sur historique</li>
+        <li>Détection de dérive (trend analysis)</li>
+        <li>Filtrage de bruit via persistance temporelle</li>
+    </ul>
+</li>
+
+<li>Système de décision :
+    <ul>
+        <li>Score = Gravité × Impact utilisateur × Confiance statistique</li>
+        <li>Priorisation des incidents critiques</li>
+    </ul>
+</li>
+
+<li>Pipeline data engineering :
+    <ul>
+        <li>Ingestion → Snowflake</li>
+        <li>Processing → Python (Pandas, NumPy)</li>
+        <li>Visualisation → Streamlit dashboard</li>
+    </ul>
+</li>
 </ul>
 
-<a class="btn" href="#">GitHub</a>
+<p><strong>📊 Résultat :</strong><br>
+Détection des anomalies plusieurs minutes avant les systèmes existants, avec réduction des faux positifs grâce au scoring multi-critères.</p>
 
 <div>
 <span class="tag">Python</span>
-<span class="tag">LLM</span>
+<span class="tag">Multi-Agent</span>
+<span class="tag">Time Series</span>
 <span class="tag">Snowflake</span>
-</div>
-</div>
-
-<div class="card">
-<h3>🤖 AI Customer Support (RAG)</h3>
-<p>Système intelligent de support automatisé</p>
-
-<ul>
-<li>Recherche sémantique (embeddings)</li>
-<li>Pipeline RAG complet</li>
-<li>Analyse de sentiment</li>
-</ul>
-
-<a class="btn" href="#">GitHub</a>
-
-<div>
-<span class="tag">NLP</span>
-<span class="tag">RAG</span>
 <span class="tag">LLM</span>
+<span class="tag">Streamlit</span>
 </div>
+
+<a class="btn" href="#">Voir projet</a>
 </div>
 
 <div class="card">
-<h3>🧬 PRISME NLP</h3>
-<p>Analyse d’impact scientifique des publications</p>
+<h3>🤖 AI Customer Support System (RAG + NLP)</h3>
 
+<p><strong>🎯 Problème métier :</strong><br>
+Les systèmes de support client traditionnels sont non contextualisés, lents et incapables de prioriser les tickets intelligemment.</p>
+
+<p><strong>🧠 Objectif :</strong><br>
+Créer un système capable de comprendre, prioriser et répondre automatiquement aux demandes clients.</p>
+
+<p><strong>⚙️ Architecture :</strong></p>
 <ul>
-<li>SciBERT / SPECTER2</li>
-<li>Embeddings sémantiques</li>
-<li>Pipeline ML complet</li>
+<li>Pipeline <strong>RAG (Retrieval Augmented Generation)</strong></li>
+<li>Indexation vectorielle des documents métier</li>
+<li>Recherche sémantique via embeddings</li>
+<li>Analyse de sentiment pour priorisation automatique</li>
+<li>Génération de réponses via LLM contextualisé</li>
 </ul>
 
-<a class="btn" href="#">GitHub</a>
+<p><strong>🔧 Détails techniques :</strong></p>
+<ul>
+<li>Embedding des tickets et base de connaissances</li>
+<li>Similarité cosinus pour retrieval</li>
+<li>Classification des requêtes (urgence, type, intention)</li>
+<li>Génération de réponse conditionnée par contexte</li>
+</ul>
+
+<p><strong>📊 Résultat :</strong><br>
+Amélioration de la qualité des réponses et réduction du temps de traitement des tickets.</p>
 
 <div>
-<span class="tag">Transformers</span>
+<span class="tag">RAG</span>
+<span class="tag">NLP</span>
+<span class="tag">LLM</span>
+<span class="tag">Embeddings</span>
+<span class="tag">Python</span>
+</div>
+
+<a class="btn" href="#">Voir projet</a>
+</div>
+
+<div class="card">
+<h3>🧬 PRISME NLP (INSERM)</h3>
+
+<p><strong>🎯 Problème :</strong><br>
+Les chercheurs ont besoin d’outils pour estimer l’impact potentiel des publications scientifiques avant leur diffusion.</p>
+
+<p><strong>🧠 Objectif :</strong><br>
+Construire un modèle NLP capable de représenter sémantiquement des publications scientifiques et prédire leur impact.</p>
+
+<p><strong>⚙️ Pipeline technique :</strong></p>
+<ul>
+<li>Prétraitement de corpus scientifiques (cleaning, tokenization)</li>
+<li>Utilisation de Transformers spécialisés :
+    <ul>
+        <li>SciBERT (domaine biomédical)</li>
+        <li>SPECTER2 (représentation de publications)</li>
+    </ul>
+</li>
+
+<li>Création d’embeddings sémantiques</li>
+<li>Feature engineering pour variables bibliométriques</li>
+<li>Modèle supervisé de prédiction d’impact</li>
+</ul>
+
+<p><strong>📊 Résultat :</strong><br>
+Amélioration de la compréhension des relations entre publications et aide à la priorisation scientifique.</p>
+
+<div>
 <span class="tag">PyTorch</span>
+<span class="tag">Transformers</span>
+<span class="tag">NLP</span>
+<span class="tag">SciBERT</span>
 </div>
+
+<a class="btn" href="#">Voir projet</a>
+</div>
+
+<div class="card">
+<h3>🧠 NutriRAG – Analyse nutritionnelle intelligente</h3>
+
+<p><strong>🎯 Problème :</strong><br>
+Les données nutritionnelles sont complexes, non structurées et difficiles à exploiter pour la segmentation.</p>
+
+<p><strong>🧠 Objectif :</strong><br>
+Transformer des données nutritionnelles brutes en insights exploitables via ML non supervisé.</p>
+
+<p><strong>⚙️ Méthodologie :</strong></p>
+<ul>
+<li>Feature engineering nutritionnel</li>
+<li>Réduction de dimension :
+    <ul>
+        <li>PCA (structure linéaire)</li>
+        <li>UMAP (structure non linéaire)</li>
+    </ul>
+</li>
+
+<li>Clustering :
+    <ul>
+        <li>K-Means</li>
+        <li>DBSCAN</li>
+        <li>Clustering hiérarchique</li>
+    </ul>
+</li>
+</ul>
+
+<p><strong>📊 Résultat :</strong><br>
+Segmentation cohérente des aliments et extraction de patterns nutritionnels exploitables.</p>
+
+<div>
+<span class="tag">Scikit-learn</span>
+<span class="tag">Clustering</span>
+<span class="tag">PCA</span>
+<span class="tag">UMAP</span>
+</div>
+
+<a class="btn" href="#">Voir projet</a>
 </div>
 
 </div>
 </section>
-
-<section id="skills">
-<h2>🛠️ Compétences</h2>
-
-<div class="grid">
-<div class="card">Machine Learning avancé</div>
-<div class="card">NLP & Transformers</div>
-<div class="card">Data Engineering (ETL)</div>
-<div class="card">MLOps (Docker, CI/CD)</div>
-</div>
-
-</section>
-
-<section id="contact">
-<h2>📫 Contact</h2>
-<p>Email : celinabedjou868@gmail.com</p>
-<p>GitHub : github.com/bedjou211</p>
-</section>
-
-<script>
-const sections = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-        }
-    });
-});
-
-sections.forEach(section => {
-    observer.observe(section);
-});
-</script>
-
-</body>
-</html>
