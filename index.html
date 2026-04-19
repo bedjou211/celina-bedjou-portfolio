@@ -8,217 +8,279 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Inter', sans-serif;
-    margin: 0;
-    background: #020617;
+    background: linear-gradient(135deg, #0f172a, #020617);
     color: #e2e8f0;
 }
 
-section {
-    max-width: 1100px;
-    margin: auto;
-    padding: 60px 20px;
+/* NAVBAR */
+nav {
+    position: fixed;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
 }
 
-h1, h2 {
+nav a {
+    margin: 0 15px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
     color: white;
 }
 
+/* HERO */
 .hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: radial-gradient(circle at top, #1e293b, #020617);
     text-align: center;
-    padding: 100px 20px;
+    animation: fadeIn 1.5s ease;
 }
 
+.hero h1 {
+    font-size: 3.5em;
+}
+
+.hero p {
+    margin-top: 10px;
+    color: #94a3b8;
+}
+
+/* SECTIONS */
+section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    border-left: 4px solid #38bdf8;
+    padding-left: 10px;
+}
+
+/* CARDS */
 .card {
-    background: #0f172a;
+    background: rgba(30, 41, 59, 0.7);
     padding: 25px;
-    border-radius: 12px;
-    margin-top: 25px;
-    border: 1px solid #1e293b;
+    border-radius: 15px;
+    margin-top: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(56,189,248,0.2);
+}
+
+/* TAGS */
 .tag {
-    background: #1e293b;
+    display: inline-block;
+    background: #334155;
     padding: 5px 10px;
     margin: 5px;
-    display: inline-block;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 0.8em;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1;}
+}
+
+/* CONTACT */
+.contact a {
+    display: block;
+    margin-top: 10px;
+    color: #38bdf8;
 }
 </style>
 </head>
 
 <body>
 
+<nav>
+    <a href="#about">À propos</a>
+    <a href="#projects">Projets</a>
+    <a href="#skills">Compétences</a>
+    <a href="#contact">Contact</a>
+</nav>
+
 <div class="hero">
-<h1>Celina Bedjou</h1>
-<p>Data Scientist | Machine Learning Engineer</p>
-<p>NLP • MLOps • Multi-Agent Systems</p>
+    <h1>Celina Bedjou</h1>
+    <p>Data Scientist • Machine Learning Engineer</p>
+    <p>NLP • MLOps • Multi-Agent Systems</p>
 </div>
 
-<section>
+<section id="about">
 <h2>🧠 À propos</h2>
 <p>
-Ingénieure spécialisée en Data Science, je conçois des systèmes intelligents de bout en bout :
-de l’ingestion de données à la mise en production de modèles.
-Mon travail se concentre sur les architectures avancées (multi-agents, LLM, pipelines scalables)
-avec une forte orientation impact métier.
+Ingénieure Data spécialisée en Machine Learning, NLP et Data Engineering,
+je conçois des systèmes intelligents robustes capables de traiter des données complexes
+et de produire des insights exploitables.
+</p>
+<p>
+Je travaille particulièrement sur les architectures multi-agents, les systèmes basés sur LLM
+et l’industrialisation des pipelines ML.
 </p>
 </section>
 
-<section>
-<h2>🚀 Projets (détaillés)</h2>
+<section id="projects">
+<h2>🚀 Projets</h2>
+
+<div class="grid">
 
 <div class="card">
-<h3>🚆 Système de Vigilance Numérique – Hackathon SNCF (1ère place)</h3>
+<h3>🚆 Vigilance Numérique (SNCF Hackathon – 🥇 1ère place)</h3>
+<p><strong>Objectif :</strong> Détection précoce des perturbations ferroviaires en temps réel à partir de flux de données massifs.</p>
 
-<p><strong>Problématique :</strong>  
-Les incidents ferroviaires sont souvent détectés tardivement, ce qui impacte fortement les usagers et les opérations.</p>
-
-<p><strong>Solution développée :</strong></p>
 <ul>
-<li>Conception d’une architecture <strong>multi-agents</strong> avec 7 agents spécialisés :
+<li>Conception d’une architecture <strong>multi-agents (7 agents)</strong> :
     <ul>
-        <li>Collecte des données temps réel (APIs GTFS-RT, SIRI Lite)</li>
+        <li>Collecte & ingestion de données temps réel (GTFS-RT, SIRI Lite)</li>
         <li>Nettoyage et normalisation des flux</li>
-        <li>Analyse des anomalies</li>
-        <li>Prise de décision</li>
-        <li>Génération de rapports via LLM</li>
+        <li>Détection d’anomalies sur séries temporelles</li>
+        <li>Prise de décision automatisée</li>
+        <li>Génération de rapports intelligents via LLM</li>
     </ul>
 </li>
 
-<li>Détection d’anomalies sur séries temporelles combinant :
+<li>Algorithme de détection avancée :
     <ul>
-        <li>Z-score contextualisé basé sur historique</li>
-        <li>Analyse de dérive (slope)</li>
-        <li>Persistance temporelle (réduction des faux positifs)</li>
+        <li>Z-score contextualisé (baseline historique)</li>
+        <li>Analyse de dérive (trend / slope)</li>
+        <li>Persistance temporelle pour filtrer le bruit</li>
     </ul>
 </li>
 
-<li>Conception d’un <strong>algorithme de scoring</strong> intégrant :
+<li>Système de <strong>scoring intelligent</strong> :
     <ul>
         <li>Gravité opérationnelle</li>
-        <li>Impact utilisateur (heures de pointe, flux)</li>
-        <li>Confiance statistique</li>
+        <li>Impact utilisateur (trafic, heures de pointe)</li>
+        <li>Indice de confiance statistique</li>
     </ul>
 </li>
 
-<li>Utilisation d’un <strong>LLM</strong> pour :
-    <ul>
-        <li>Générer des synthèses d’incidents</li>
-        <li>Estimer les temps de reprise du trafic</li>
-    </ul>
-</li>
-
-<li>Pipeline data :
+<li>Pipeline data end-to-end :
     <ul>
         <li>Ingestion → Snowflake</li>
         <li>Traitement → Python</li>
-        <li>Monitoring → Streamlit</li>
+        <li>Visualisation → Streamlit dashboard</li>
     </ul>
 </li>
 </ul>
 
-<p><strong>Résultat :</strong> Détection des incidents plusieurs minutes avant les systèmes traditionnels.</p>
+<p><strong>Résultat :</strong> Détection des incidents plusieurs minutes avant les systèmes classiques.</p>
 
-<p>
+<div>
 <span class="tag">Python</span>
+<span class="tag">Multi-Agent</span>
+<span class="tag">LLM</span>
 <span class="tag">Time Series</span>
 <span class="tag">Snowflake</span>
-<span class="tag">LLM</span>
-<span class="tag">Multi-Agent</span>
 <span class="tag">Streamlit</span>
-</p>
+</div>
 </div>
 
 <div class="card">
-<h3>🤖 AI Customer Support System (RAG + Multi-Agent)</h3>
-
-<p><strong>Problématique :</strong>  
-Les systèmes de support classiques manquent de contextualisation et de priorisation intelligente.</p>
+<h3>🤖 AI Customer Support System (RAG + NLP)</h3>
+<p><strong>Objectif :</strong> Automatiser et améliorer la gestion des tickets clients via IA.</p>
 
 <ul>
-<li>Implémentation d’un pipeline <strong>RAG</strong> :
-    <ul>
-        <li>Indexation vectorielle des documents</li>
-        <li>Recherche sémantique via embeddings</li>
-    </ul>
-</li>
-
-<li>Pipeline NLP :
-    <ul>
-        <li>Analyse de sentiment</li>
-        <li>Classification automatique des tickets</li>
-    </ul>
-</li>
-
-<li>Architecture multi-agents :
-    <ul>
-        <li>Agent analyse</li>
-        <li>Agent décision</li>
-        <li>Agent génération</li>
-    </ul>
-</li>
-
-<li>Génération de réponses via LLM contextualisé</li>
-<li>Dashboard de monitoring avec Streamlit</li>
+<li>Implémentation d’un pipeline <strong>RAG (Retrieval Augmented Generation)</strong></li>
+<li>Construction d’une base de connaissances vectorielle avec embeddings</li>
+<li>Recherche sémantique pour retrouver les informations pertinentes</li>
+<li>Analyse de sentiment pour priorisation automatique des tickets</li>
+<li>Génération de réponses contextualisées via LLM</li>
+<li>Architecture modulaire multi-composants</li>
 </ul>
 
-<p><strong>Résultat :</strong> Automatisation du support avec amélioration de la pertinence des réponses.</p>
+<p><strong>Résultat :</strong> Réduction du temps de traitement et amélioration de la qualité des réponses.</p>
 
-<p>
+<div>
 <span class="tag">RAG</span>
 <span class="tag">NLP</span>
 <span class="tag">LLM</span>
 <span class="tag">Python</span>
-</p>
+<span class="tag">Embeddings</span>
+</div>
 </div>
 
 <div class="card">
-<h3>🧬 PRISME – NLP Scientifique (INSERM)</h3>
+<h3>🧬 PRISME NLP (INSERM)</h3>
+<p><strong>Objectif :</strong> Analyser et prédire l’impact scientifique des publications de recherche.</p>
 
 <ul>
-<li>Développement d’un modèle prédictif d’impact scientifique</li>
-<li>Utilisation de modèles transformers spécialisés :
+<li>Utilisation de modèles Transformers spécialisés :
     <ul>
-        <li>SciBERT</li>
-        <li>SPECTER2</li>
+        <li>SciBERT (biomedical NLP)</li>
+        <li>SPECTER2 (représentation scientifique)</li>
     </ul>
 </li>
 
-<li>Construction d’embeddings sémantiques</li>
-<li>Pipeline ML complet :
+<li>Création d’embeddings sémantiques pour comparer les publications</li>
+<li>Pipeline complet de Machine Learning :
     <ul>
-        <li>Prétraitement des données</li>
+        <li>Prétraitement des textes scientifiques</li>
         <li>Feature engineering</li>
-        <li>Entraînement et évaluation</li>
+        <li>Entraînement et évaluation des modèles</li>
     </ul>
 </li>
 
-<li>Normalisation bibliométrique pour comparaison des publications</li>
+<li>Normalisation bibliométrique pour comparaison équitable</li>
 </ul>
 
-<p>
+<p><strong>Impact :</strong> Aide à la prise de décision scientifique et analyse de la recherche.</p>
+
+<div>
 <span class="tag">PyTorch</span>
 <span class="tag">Transformers</span>
 <span class="tag">NLP</span>
-</p>
+<span class="tag">SciBERT</span>
+</div>
 </div>
 
 <div class="card">
-<h3>🧠 NutriRAG – Analyse nutritionnelle</h3>
+<h3>🧠 NutriRAG – Analyse intelligente de données nutritionnelles</h3>
+<p><strong>Objectif :</strong> Structurer et analyser des données nutritionnelles complexes.</p>
 
 <ul>
-<li>Feature engineering sur données alimentaires</li>
+<li>Feature engineering avancé sur données alimentaires</li>
 <li>Réduction de dimension :
     <ul>
-        <li>PCA</li>
-        <li>UMAP</li>
+        <li>PCA (analyse linéaire)</li>
+        <li>UMAP (structure non linéaire)</li>
     </ul>
 </li>
 
-<li>Clustering avancé :
+<li>Clustering non supervisé :
     <ul>
         <li>K-Means</li>
         <li>DBSCAN</li>
@@ -226,37 +288,58 @@ Les systèmes de support classiques manquent de contextualisation et de priorisa
     </ul>
 </li>
 
-<li>Production de KPIs pour modules downstream</li>
+<li>Génération de KPIs pour analyse métier</li>
 </ul>
 
-<p>
+<p><strong>Résultat :</strong> Segmentation intelligente des aliments et insights exploitables.</p>
+
+<div>
+<span class="tag">Scikit-learn</span>
 <span class="tag">Data Science</span>
 <span class="tag">Clustering</span>
-<span class="tag">Scikit-learn</span>
-</p>
+<span class="tag">PCA</span>
+</div>
+</div>
+
+</div>
+
+</section>
+<section id="skills">
+<h2>🛠️ Compétences</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Machine Learning</h3>
+<p>Modèles supervisés, non supervisés, optimisation</p>
 </div>
 
 <div class="card">
-<h3>🧪 Computer Vision – Détection de tumeurs</h3>
+<h3>NLP & Deep Learning</h3>
+<p>Transformers, embeddings, classification</p>
+</div>
 
-<ul>
-<li>Préparation et annotation du dataset BraTS 2020</li>
-<li>Entraînement d’un modèle YOLO</li>
-<li>Pipeline de traitement d’images IRM</li>
-</ul>
+<div class="card">
+<h3>Data Engineering</h3>
+<p>ETL, bases de données, pipelines</p>
+</div>
 
-<p>
-<span class="tag">Computer Vision</span>
-<span class="tag">YOLO</span>
-</p>
+<div class="card">
+<h3>MLOps</h3>
+<p>Docker, CI/CD, MLflow, Airflow</p>
+</div>
+
 </div>
 
 </section>
 
-<section>
+<section id="contact">
 <h2>📫 Contact</h2>
-<p>Email : celinabedjou868@gmail.com</p>
-<p>GitHub : github.com/bedjou211</p>
+<div class="contact">
+<a href="mailto:celinabedjou868@gmail.com">Email</a>
+<a href="https://github.com/bedjou211">GitHub</a>
+<a href="#">LinkedIn</a>
+</div>
 </section>
 
 </body>
