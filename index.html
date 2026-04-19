@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Celina Bedjou | Data Scientist</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -16,30 +16,32 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #0f172a, #020617);
+    background: radial-gradient(circle at top, #0f172a, #020617);
     color: #e2e8f0;
+    scroll-behavior: smooth;
 }
 
-/* NAVBAR */
+/* NAV */
 nav {
     position: fixed;
     width: 100%;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 15px;
+    top: 0;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(12px);
+    padding: 12px;
     text-align: center;
     z-index: 1000;
 }
 
 nav a {
-    margin: 0 15px;
+    margin: 0 12px;
     color: #94a3b8;
     text-decoration: none;
     font-weight: 500;
 }
 
 nav a:hover {
-    color: white;
+    color: #38bdf8;
 }
 
 /* HERO */
@@ -49,57 +51,81 @@ nav a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    background: radial-gradient(circle at top, #1e293b, #020617);
     text-align: center;
-    animation: fadeIn 1.5s ease;
 }
 
 .hero h1 {
-    font-size: 3.5em;
+    font-size: 3.8em;
+    animation: fadeUp 1s ease;
 }
 
 .hero p {
-    margin-top: 10px;
     color: #94a3b8;
+    margin-top: 10px;
+    animation: fadeUp 1.5s ease;
 }
 
 /* SECTIONS */
 section {
-    padding: 80px 20px;
     max-width: 1100px;
     margin: auto;
+    padding: 80px 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 h2 {
     font-size: 2em;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     border-left: 4px solid #38bdf8;
-    padding-left: 10px;
+    padding-left: 12px;
 }
 
 /* CARDS */
 .card {
-    background: rgba(30, 41, 59, 0.7);
+    background: rgba(30, 41, 59, 0.6);
     padding: 25px;
     border-radius: 15px;
     margin-top: 20px;
+    border: 1px solid rgba(56,189,248,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(56,189,248,0.2);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 40px rgba(56,189,248,0.15);
 }
 
 /* TAGS */
 .tag {
     display: inline-block;
-    background: #334155;
+    background: #1e293b;
     padding: 5px 10px;
     margin: 5px;
     border-radius: 8px;
     font-size: 0.8em;
+}
+
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #38bdf8;
+    color: #0f172a;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #0ea5e9;
 }
 
 /* GRID */
@@ -109,17 +135,23 @@ h2 {
     gap: 20px;
 }
 
-/* ANIMATION */
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1;}
+/* STATS */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    text-align: center;
 }
 
-/* CONTACT */
-.contact a {
-    display: block;
-    margin-top: 10px;
+.stat h3 {
+    font-size: 2em;
     color: #38bdf8;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
 }
 </style>
 </head>
@@ -137,18 +169,28 @@ h2 {
     <h1>Celina Bedjou</h1>
     <p>Data Scientist • Machine Learning Engineer</p>
     <p>NLP • MLOps • Multi-Agent Systems</p>
+
+    <div class="stats">
+        <div class="stat">
+            <h3>5+</h3>
+            <p>Projets IA</p>
+        </div>
+        <div class="stat">
+            <h3>3</h3>
+            <p>Systèmes LLM</p>
+        </div>
+        <div class="stat">
+            <h3>1er</h3>
+            <p>Hackathon SNCF</p>
+        </div>
+    </div>
 </div>
 
 <section id="about">
 <h2>🧠 À propos</h2>
 <p>
-Ingénieure Data spécialisée en Machine Learning, NLP et Data Engineering,
-je conçois des systèmes intelligents robustes capables de traiter des données complexes
-et de produire des insights exploitables.
-</p>
-<p>
-Je travaille particulièrement sur les architectures multi-agents, les systèmes basés sur LLM
-et l’industrialisation des pipelines ML.
+Ingénieure Data Science spécialisée en Machine Learning, NLP et Data Engineering.
+Je conçois des systèmes intelligents complets allant de la donnée brute jusqu’au déploiement en production.
 </p>
 </section>
 
@@ -158,189 +200,98 @@ et l’industrialisation des pipelines ML.
 <div class="grid">
 
 <div class="card">
-<h3>🚆 Vigilance Numérique (SNCF Hackathon – 🥇 1ère place)</h3>
-<p><strong>Objectif :</strong> Détection précoce des perturbations ferroviaires en temps réel à partir de flux de données massifs.</p>
+<h3>🚆 Vigilance Numérique (SNCF 🥇)</h3>
+<p>Système de détection d’incidents ferroviaires en temps réel</p>
 
 <ul>
-<li>Conception d’une architecture <strong>multi-agents (7 agents)</strong> :
-    <ul>
-        <li>Collecte & ingestion de données temps réel (GTFS-RT, SIRI Lite)</li>
-        <li>Nettoyage et normalisation des flux</li>
-        <li>Détection d’anomalies sur séries temporelles</li>
-        <li>Prise de décision automatisée</li>
-        <li>Génération de rapports intelligents via LLM</li>
-    </ul>
-</li>
-
-<li>Algorithme de détection avancée :
-    <ul>
-        <li>Z-score contextualisé (baseline historique)</li>
-        <li>Analyse de dérive (trend / slope)</li>
-        <li>Persistance temporelle pour filtrer le bruit</li>
-    </ul>
-</li>
-
-<li>Système de <strong>scoring intelligent</strong> :
-    <ul>
-        <li>Gravité opérationnelle</li>
-        <li>Impact utilisateur (trafic, heures de pointe)</li>
-        <li>Indice de confiance statistique</li>
-    </ul>
-</li>
-
-<li>Pipeline data end-to-end :
-    <ul>
-        <li>Ingestion → Snowflake</li>
-        <li>Traitement → Python</li>
-        <li>Visualisation → Streamlit dashboard</li>
-    </ul>
-</li>
+<li>Architecture multi-agents (7 agents)</li>
+<li>Détection d’anomalies sur séries temporelles</li>
+<li>Scoring intelligent impact + gravité</li>
+<li>LLM pour génération de rapports</li>
 </ul>
 
-<p><strong>Résultat :</strong> Détection des incidents plusieurs minutes avant les systèmes classiques.</p>
+<a class="btn" href="#">GitHub</a>
 
 <div>
 <span class="tag">Python</span>
-<span class="tag">Multi-Agent</span>
 <span class="tag">LLM</span>
-<span class="tag">Time Series</span>
 <span class="tag">Snowflake</span>
-<span class="tag">Streamlit</span>
 </div>
 </div>
 
 <div class="card">
-<h3>🤖 AI Customer Support System (RAG + NLP)</h3>
-<p><strong>Objectif :</strong> Automatiser et améliorer la gestion des tickets clients via IA.</p>
+<h3>🤖 AI Customer Support (RAG)</h3>
+<p>Système intelligent de support automatisé</p>
 
 <ul>
-<li>Implémentation d’un pipeline <strong>RAG (Retrieval Augmented Generation)</strong></li>
-<li>Construction d’une base de connaissances vectorielle avec embeddings</li>
-<li>Recherche sémantique pour retrouver les informations pertinentes</li>
-<li>Analyse de sentiment pour priorisation automatique des tickets</li>
-<li>Génération de réponses contextualisées via LLM</li>
-<li>Architecture modulaire multi-composants</li>
+<li>Recherche sémantique (embeddings)</li>
+<li>Pipeline RAG complet</li>
+<li>Analyse de sentiment</li>
 </ul>
 
-<p><strong>Résultat :</strong> Réduction du temps de traitement et amélioration de la qualité des réponses.</p>
+<a class="btn" href="#">GitHub</a>
 
 <div>
+<span class="tag">NLP</span>
 <span class="tag">RAG</span>
-<span class="tag">NLP</span>
 <span class="tag">LLM</span>
-<span class="tag">Python</span>
-<span class="tag">Embeddings</span>
 </div>
 </div>
 
 <div class="card">
-<h3>🧬 PRISME NLP (INSERM)</h3>
-<p><strong>Objectif :</strong> Analyser et prédire l’impact scientifique des publications de recherche.</p>
+<h3>🧬 PRISME NLP</h3>
+<p>Analyse d’impact scientifique des publications</p>
 
 <ul>
-<li>Utilisation de modèles Transformers spécialisés :
-    <ul>
-        <li>SciBERT (biomedical NLP)</li>
-        <li>SPECTER2 (représentation scientifique)</li>
-    </ul>
-</li>
-
-<li>Création d’embeddings sémantiques pour comparer les publications</li>
-<li>Pipeline complet de Machine Learning :
-    <ul>
-        <li>Prétraitement des textes scientifiques</li>
-        <li>Feature engineering</li>
-        <li>Entraînement et évaluation des modèles</li>
-    </ul>
-</li>
-
-<li>Normalisation bibliométrique pour comparaison équitable</li>
+<li>SciBERT / SPECTER2</li>
+<li>Embeddings sémantiques</li>
+<li>Pipeline ML complet</li>
 </ul>
 
-<p><strong>Impact :</strong> Aide à la prise de décision scientifique et analyse de la recherche.</p>
+<a class="btn" href="#">GitHub</a>
 
 <div>
-<span class="tag">PyTorch</span>
 <span class="tag">Transformers</span>
-<span class="tag">NLP</span>
-<span class="tag">SciBERT</span>
-</div>
-</div>
-
-<div class="card">
-<h3>🧠 NutriRAG – Analyse intelligente de données nutritionnelles</h3>
-<p><strong>Objectif :</strong> Structurer et analyser des données nutritionnelles complexes.</p>
-
-<ul>
-<li>Feature engineering avancé sur données alimentaires</li>
-<li>Réduction de dimension :
-    <ul>
-        <li>PCA (analyse linéaire)</li>
-        <li>UMAP (structure non linéaire)</li>
-    </ul>
-</li>
-
-<li>Clustering non supervisé :
-    <ul>
-        <li>K-Means</li>
-        <li>DBSCAN</li>
-        <li>Clustering hiérarchique</li>
-    </ul>
-</li>
-
-<li>Génération de KPIs pour analyse métier</li>
-</ul>
-
-<p><strong>Résultat :</strong> Segmentation intelligente des aliments et insights exploitables.</p>
-
-<div>
-<span class="tag">Scikit-learn</span>
-<span class="tag">Data Science</span>
-<span class="tag">Clustering</span>
-<span class="tag">PCA</span>
+<span class="tag">PyTorch</span>
 </div>
 </div>
 
 </div>
-
 </section>
+
 <section id="skills">
 <h2>🛠️ Compétences</h2>
 
 <div class="grid">
-
-<div class="card">
-<h3>Machine Learning</h3>
-<p>Modèles supervisés, non supervisés, optimisation</p>
-</div>
-
-<div class="card">
-<h3>NLP & Deep Learning</h3>
-<p>Transformers, embeddings, classification</p>
-</div>
-
-<div class="card">
-<h3>Data Engineering</h3>
-<p>ETL, bases de données, pipelines</p>
-</div>
-
-<div class="card">
-<h3>MLOps</h3>
-<p>Docker, CI/CD, MLflow, Airflow</p>
-</div>
-
+<div class="card">Machine Learning avancé</div>
+<div class="card">NLP & Transformers</div>
+<div class="card">Data Engineering (ETL)</div>
+<div class="card">MLOps (Docker, CI/CD)</div>
 </div>
 
 </section>
 
 <section id="contact">
 <h2>📫 Contact</h2>
-<div class="contact">
-<a href="mailto:celinabedjou868@gmail.com">Email</a>
-<a href="https://github.com/bedjou211">GitHub</a>
-<a href="#">LinkedIn</a>
-</div>
+<p>Email : celinabedjou868@gmail.com</p>
+<p>GitHub : github.com/bedjou211</p>
 </section>
+
+<script>
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+</script>
 
 </body>
 </html>
