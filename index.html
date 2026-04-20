@@ -23,14 +23,54 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.6; }
         
+        /* --- BARRE DE NAVIGATION --- */
         nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            padding: 15px 8%; display: flex; justify-content: space-between; align-items: center;
-            background: rgba(5, 8, 22, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(11, 15, 26, 0.85); /* Fond sombre transparent */
+            backdrop-filter: blur(12px); /* Effet de flou derrière */
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
         }
-        .logo { font-weight: 800; font-size: 1.4rem; color: #fff; }
-        .logo span { color: var(--primary); }
-
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        /* C'est ici que le style des liens est défini */
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dim); /* Gris clair par défaut */
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.3s ease;
+            text-transform: capitalize;
+        }
+        
+        /* Effet au survol : devient blanc et s'illumine légèrement */
+        .nav-links a:hover {
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Style spécifique pour le logo */
+        .logo {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary); /* Le point ou le "AI" en bleu */
+        }
         section { padding: 80px 8%; border-bottom: 1px solid var(--border); }
         .section-title { font-size: 2.2rem; margin-bottom: 40px; font-weight: 800; text-align: center; }
         .section-title span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
