@@ -1,294 +1,229 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Celina Bedjou | Data Scientist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celina Bedjou | AI Engineer Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #050816;
+            --card-bg: #101630;
+            --primary: #38bdf8;
+            --secondary: #818cf8;
+            --text-main: #e2e8f0;
+            --text-dim: #94a3b8;
+            --accent-gradient: linear-gradient(90deg, #38bdf8, #818cf8);
+        }
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #0f172a, #020617);
-    color: #e2e8f0;
-}
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
 
-/* NAVBAR */
-nav {
-    position: fixed;
-    width: 100%;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 15px;
-    text-align: center;
-    z-index: 1000;
-}
+        /* --- NAVBAR --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 8, 22, 0.8);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
 
-nav a {
-    margin: 0 15px;
-    color: #94a3b8;
-    text-decoration: none;
-    font-weight: 500;
-}
+        .logo { font-weight: 800; font-size: 1.5rem; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-nav a:hover {
-    color: white;
-}
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { text-decoration: none; color: var(--text-dim); font-weight: 500; transition: 0.3s; }
+        nav ul li a:hover { color: var(--primary); }
 
-/* HERO */
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: radial-gradient(circle at top, #1e293b, #020617);
-    animation: fadeIn 1.5s ease;
-}
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #1e293b 0%, #050816 70%);
+        }
 
-.hero h1 {
-    font-size: 3.5em;
-}
+        .hero h1 { font-size: 4rem; font-weight: 800; margin-bottom: 10px; }
+        .hero .typing { color: var(--primary); border-right: 3px solid var(--primary); padding-right: 5px; animation: blink 0.8s infinite; }
+        .hero p { max-width: 600px; color: var(--text-dim); font-size: 1.1rem; margin-top: 20px; }
 
-.hero p {
-    margin-top: 10px;
-    color: #94a3b8;
-}
+        .btn-group { margin-top: 40px; display: flex; gap: 20px; }
+        .btn { padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; }
+        .btn-primary { background: var(--accent-gradient); color: white; }
+        .btn-outline { border: 1px solid var(--primary); color: var(--primary); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3); }
 
-/* SECTIONS */
-section {
-    padding: 80px 20px;
-    max-width: 1100px;
-    margin: auto;
-}
+        /* --- SECTIONS --- */
+        section { padding: 100px 10%; }
+        .section-title { font-size: 2.5rem; margin-bottom: 50px; text-align: center; }
+        .section-title span { color: var(--primary); }
 
-h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    border-left: 4px solid #38bdf8;
-    padding-left: 10px;
-}
+        /* --- ABOUT & STATS --- */
+        .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
+        .stat-card { background: var(--card-bg); padding: 20px; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+        .stat-card h3 { font-size: 2rem; color: var(--primary); }
 
-/* CARDS */
-.card {
-    background: rgba(30, 41, 59, 0.7);
-    padding: 25px;
-    border-radius: 15px;
-    margin-top: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
+        /* --- PROJECTS GRID --- */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .project-card { 
+            background: var(--card-bg); 
+            border-radius: 20px; 
+            overflow: hidden; 
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.4s;
+        }
+        .project-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .project-img { height: 200px; background: #1e293b; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #334155; }
+        .project-content { padding: 25px; }
+        .project-tags { margin: 15px 0; }
+        .tag { font-size: 0.75rem; background: rgba(56, 189, 248, 0.1); color: var(--primary); padding: 5px 12px; border-radius: 20px; margin-right: 5px; }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(56,189,248,0.2);
-}
+        /* --- CONTACT --- */
+        .contact-box { background: var(--card-bg); padding: 40px; border-radius: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        input, textarea { width: 100%; padding: 15px; background: #050816; border: 1px solid #334155; border-radius: 10px; color: white; margin-bottom: 15px; }
+        
+        footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-dim); }
 
-/* TAGS */
-.tag {
-    display: inline-block;
-    background: #334155;
-    padding: 5px 10px;
-    margin: 5px;
-    border-radius: 8px;
-    font-size: 0.8em;
-}
+        @keyframes blink { 50% { border-color: transparent; } }
 
-/* GRID */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-/* ANIMATION */
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1;}
-}
-
-/* CONTACT */
-.contact a {
-    display: block;
-    margin-top: 10px;
-    color: #38bdf8;
-}
-</style>
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .about-container, .contact-box { grid-template-columns: 1fr; }
+            nav ul { display: none; }
+        }
+    </style>
 </head>
-
 <body>
 
-<nav>
-    <a href="#about">À propos</a>
-    <a href="#projects">Projets</a>
-    <a href="#skills">Compétences</a>
-    <a href="#contact">Contact</a>
-</nav>
+    <nav>
+        <div class="logo">Celina.AI</div>
+        <ul>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-<!-- HERO -->
-<div class="hero">
-    <h1>Celina Bedjou</h1>
-    <p>Data Scientist • Machine Learning Engineer</p>
-    <p>NLP • MLOps • Multi-Agent Systems</p>
-</div>
+    <header class="hero">
+        <h1>Celina Bedjou</h1>
+        <h2 style="font-size: 1.8rem; font-weight: 400;">Ingénieure <span class="typing">Data Scientist</span></h2>
+        <p>Je conçois des systèmes intelligents et scalables en utilisant le Machine Learning, le NLP et les architectures Multi-Agents.</p>
+        
+        <div class="btn-group">
+            <a href="#projects" class="btn btn-primary">Voir les Projets</a>
+            <a href="#contact" class="btn btn-outline">Me contacter</a>
+        </div>
+    </header>
 
-<!-- ABOUT -->
-<section id="about">
-<h2>🧠 À propos</h2>
-<p>
-Ingénieure Data spécialisée en Machine Learning, NLP et Data Engineering.
-Je conçois des systèmes intelligents capables de traiter des données complexes
-et de produire des décisions automatisées en production.
-</p>
-<p>
-Mon travail se concentre sur les architectures IA avancées :
-multi-agents, LLM, pipelines data et systèmes scalables.
-</p>
-</section>
+    <section id="about">
+        <h2 class="section-title">À propos de <span>moi</span></h2>
+        <div class="about-container">
+            <div>
+                <p>Spécialisée en <strong>Machine Learning et MLOps</strong>, je transforme des problématiques complexes en solutions automatisées. Mon expertise s'étend de la recherche en NLP (INSERM) au déploiement de systèmes temps réel à fort impact (SNCF).</p>
+                <div class="stats-grid">
+                    <div class="stat-card"><h3>🥇</h3><p>Prix Innovation SNCF</p></div>
+                    <div class="stat-card"><h3>7+</h3><p>Agents IA Déployés</p></div>
+                </div>
+            </div>
+            <div class="stat-card" style="text-align: left;">
+                <p><strong>Expertise :</strong> LLMs, RAG, Systèmes Multi-Agents, Time Series.</p>
+                <p style="margin-top:15px"><strong>Formation :</strong> Ingénierie des Données & IA.</p>
+            </div>
+        </div>
+    </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-<h2>🚀 Projets</h2>
+    <section id="projects">
+        <h2 class="section-title">Mes <span>Réalisations</span></h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-img"><i class="fa-solid fa-train"></i></div>
+                <div class="project-content">
+                    <h3>Vigilance Numérique (SNCF)</h3>
+                    <p>Architecture multi-agents pour la détection proactive d'incidents ferroviaires via GTFS-RT.</p>
+                    <div class="project-tags">
+                        <span class="tag">Multi-Agent</span><span class="tag">Python</span><span class="tag">Snowflake</span>
+                    </div>
+                    <a href="#" style="color: var(--primary); text-decoration: none; font-weight: 600;">Détails du projet →</a>
+                </div>
+            </div>
 
-<div class="grid">
+            <div class="project-card">
+                <div class="project-img"><i class="fa-solid fa-robot"></i></div>
+                <div class="project-content">
+                    <h3>AI Customer Support (RAG)</h3>
+                    <p>Pipeline RAG avec base vectorielle pour l'automatisation intelligente du support client.</p>
+                    <div class="project-tags">
+                        <span class="tag">RAG</span><span class="tag">LLM</span><span class="tag">NLP</span>
+                    </div>
+                    <a href="#" style="color: var(--primary); text-decoration: none; font-weight: 600;">Détails du projet →</a>
+                </div>
+            </div>
 
-<!-- PROJECT 1 -->
-<div class="card">
-<h3>🚆 Vigilance Numérique (SNCF 🥇)</h3>
+            <div class="project-card">
+                <div class="project-img"><i class="fa-solid fa-dna"></i></div>
+                <div class="project-content">
+                    <h3>PRISME NLP (INSERM)</h3>
+                    <p>Analyse d'impact de publications scientifiques via SciBERT et modèles de Transformers.</p>
+                    <div class="project-tags">
+                        <span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">Science</span>
+                    </div>
+                    <a href="#" style="color: var(--primary); text-decoration: none; font-weight: 600;">Détails du projet →</a>
+                </div>
+            </div>
 
-<p><strong>Problème :</strong> Détection tardive des incidents ferroviaires impactant les usagers.</p>
+        </div>
+    </section>
 
-<p><strong>Solution :</strong> Système IA de détection proactive en temps réel.</p>
+    <section id="contact">
+        <h2 class="section-title">Travaillons <span>Ensemble</span></h2>
+        <div class="contact-box">
+            <div>
+                <h3>Contactez-moi</h3>
+                <p style="color: var(--text-dim); margin: 20px 0;">Disponible pour des projets innovants en IA et Data Engineering.</p>
+                <p><i class="fa-solid fa-envelope" style="color: var(--primary)"></i> celinabedjou868@gmail.com</p>
+                <div class="btn-group" style="margin-top: 20px;">
+                    <a href="https://github.com/bedjou211" class="btn btn-outline"><i class="fa-brands fa-github"></i> GitHub</a>
+                </div>
+            </div>
+            <form>
+                <input type="text" placeholder="Votre Nom">
+                <input type="email" placeholder="Votre Email">
+                <textarea rows="5" placeholder="Votre Message"></textarea>
+                <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">Envoyer</button>
+            </form>
+        </div>
+    </section>
 
-<ul>
-<li>Architecture multi-agents (7 modules IA spécialisés)</li>
-<li>Ingestion temps réel (GTFS-RT, SIRI Lite APIs)</li>
-<li>Détection d’anomalies sur séries temporelles</li>
-<li>Scoring intelligent (gravité + impact + confiance)</li>
-<li>Génération automatique de rapports via LLM</li>
-<li>Dashboard Streamlit pour monitoring</li>
-</ul>
-
-<p><strong>Techniques :</strong> Z-score dynamique, trend analysis, persistance temporelle</p>
-
-<div>
-<span class="tag">Python</span>
-<span class="tag">Multi-Agent</span>
-<span class="tag">Time Series</span>
-<span class="tag">LLM</span>
-<span class="tag">Snowflake</span>
-<span class="tag">Streamlit</span>
-</div>
-</div>
-
-<!-- PROJECT 2 -->
-<div class="card">
-<h3>🤖 AI Customer Support System (RAG)</h3>
-
-<p><strong>Problème :</strong> Support client non intelligent et non contextuel.</p>
-
-<p><strong>Solution :</strong> Système IA de réponse automatisée basé sur le contexte.</p>
-
-<ul>
-<li>Pipeline RAG (Retrieval Augmented Generation)</li>
-<li>Base vectorielle d’embeddings</li>
-<li>Recherche sémantique (cosine similarity)</li>
-<li>Classification des tickets (urgence, type, intention)</li>
-<li>Génération de réponses via LLM</li>
-</ul>
-
-<p><strong>Résultat :</strong> Réduction du temps de traitement et amélioration des réponses.</p>
-
-<div>
-<span class="tag">RAG</span>
-<span class="tag">NLP</span>
-<span class="tag">LLM</span>
-<span class="tag">Embeddings</span>
-<span class="tag">Python</span>
-</div>
-</div>
-
-<!-- PROJECT 3 -->
-<div class="card">
-<h3>🧬 PRISME NLP (INSERM)</h3>
-
-<p><strong>Problème :</strong> Estimer l’impact potentiel des publications scientifiques.</p>
-
-<p><strong>Solution :</strong> Modèle NLP basé sur Transformers scientifiques.</p>
-
-<ul>
-<li>Traitement de corpus scientifiques</li>
-<li>SciBERT + SPECTER2 embeddings</li>
-<li>Feature engineering bibliométrique</li>
-<li>Modèle supervisé de prédiction d’impact</li>
-</ul>
-
-<p><strong>Résultat :</strong> Meilleure compréhension des relations scientifiques.</p>
-
-<div>
-<span class="tag">PyTorch</span>
-<span class="tag">Transformers</span>
-<span class="tag">NLP</span>
-</div>
-</div>
-
-<!-- PROJECT 4 -->
-<div class="card">
-<h3>🧠 NutriRAG</h3>
-
-<p><strong>Problème :</strong> Données nutritionnelles non structurées et difficiles à exploiter.</p>
-
-<p><strong>Solution :</strong> Analyse ML non supervisée pour segmentation intelligente.</p>
-
-<ul>
-<li>Feature engineering nutritionnel</li>
-<li>PCA + UMAP (réduction de dimension)</li>
-<li>Clustering (K-Means, DBSCAN, hiérarchique)</li>
-<li>Extraction de patterns alimentaires</li>
-</ul>
-
-<p><strong>Résultat :</strong> Segmentation cohérente des aliments.</p>
-
-<div>
-<span class="tag">Scikit-learn</span>
-<span class="tag">Clustering</span>
-<span class="tag">PCA</span>
-<span class="tag">UMAP</span>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-<h2>🛠️ Compétences</h2>
-
-<div class="grid">
-<div class="card">Machine Learning avancé</div>
-<div class="card">NLP & Transformers</div>
-<div class="card">Data Engineering (ETL)</div>
-<div class="card">MLOps (Docker, CI/CD, MLflow)</div>
-</div>
-
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-<h2>📫 Contact</h2>
-<div class="contact">
-<a href="mailto:celinabedjou868@gmail.com">Email</a>
-<a href="https://github.com/bedjou211">GitHub</a>
-<a href="#">LinkedIn</a>
-</div>
-</section>
+    <footer>
+        <p>&copy; 2026 Celina Bedjou. Tous droits réservés.</p>
+    </footer>
 
 </body>
 </html>
